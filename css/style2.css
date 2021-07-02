@@ -4,7 +4,14 @@
 body {
     font-family: 'Times New Roman', '游ゴシック', 'Meiryo UI';
 }
-
+.oil_elements {
+    display: flex;
+    flex-flow: wrap;
+    margin-left: 20px;
+}
+.oilset {
+    width: 50%;
+}
 @media screen and (max-width: 768px) { 
     .title {
         margin-left: 20px;
@@ -36,6 +43,12 @@ body {
 @media screen and (max-width: 480px){
     .ForPC{
         display: none;
+    }
+    form {
+        float: right;
+        margin-right: 50px;
+        margin-top: 20px;
+        margin-bottom: 20px;
     }
 /*---index.php---*/
 /*-----Header----*/
@@ -104,6 +117,7 @@ body {
     .oil{
         display: flex;
         margin-left: 30px;
+        border-bottom: solid 1px #cccccc6b;
     }
     .oil p1{ 
         text-align: center;
@@ -114,12 +128,12 @@ body {
         font-size: 14px;
         text-decoration: none;
         color: black;
-        text-align: center;
+        text-align: left;
         display: block;
         margin-left: 12px;
         width: 111px;
         position: absolute;
-        z-index: 1;
+        /* z-index: 1; */
         margin-top: -40px;
     }
     .OilPic {
@@ -256,6 +270,7 @@ body {
         margin-top: 10px;
     }
     .OilDetail img{
+        width: 100%;
         max-width: 300px;
     }
     .table-size{
@@ -264,5 +279,9 @@ body {
 /*---relation register---*/
     .RelationDetail {
         margin: 10px 10px;
+    }
+    
+    .oilset {
+        /*width: 30%;*/
     }
 }

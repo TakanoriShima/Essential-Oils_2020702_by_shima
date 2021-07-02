@@ -24,6 +24,10 @@ body {
     text-decoration: none;
     color: white;
 }
+form {
+    float: right;
+    margin-right: 50px;
+}
 
 .OilDetail, .EffectDetail{
     text-align: center;
@@ -124,11 +128,13 @@ body {
     .EoilContent{
         margin-left: 200px;
         margin-right: 200px;
+        margin-bottom: 25px
     }
     
     .oil{
         display: flex;
         margin-left: 30%;
+        border-bottom: solid 1px #cccccc6b;
     }
     .oil p1{
         text-align: center;
@@ -141,7 +147,7 @@ body {
         text-align: center;
         display: block;
         margin-left: 47px;
-        width: 111px;
+        width: 200px;
         position: absolute;
         z-index: 1;
         margin-top: -60px;

@@ -370,4 +370,32 @@
             }finally{
             }
         }
+        
+        // オイルのキーワード検索を行うメソッド
+        public static function search($keyword){
+            //例外処理
+             try{
+                // データベースに接続して万能の神様誕生
+                $pdo = self::get_connection();
+                // SELECT文の実行準備(:idは適当、不明確)
+                $stmt = $pdo->prepare('SELECT * FROM essential_oils WHERE name LIKE :name');
+                // バインド処理（あいまいだった値を具体的な値で穴埋めする）
+                $stmt->bindValue(':name', '%' . $keyword . '%', PDO::PARAM_STR);
+                // SELECT文本番実行
+                $stmt->execute();
+
+                // Fetch ModeをPostクラスに設定
+                $stmt->setFetchMode(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Oil');
+                // SELECT文の結果を Postクラスのインスタンス配列に格納
+                $oils = $stmt->fetchAll();
+                
+            }catch(PDOException $e){
+                
+            }finally{
+                // 後処理
+                self::close_connection($pdo, $stmt);
+            }
+            // 完成した、はい投稿あげる
+            return $oils;
+        }
     }

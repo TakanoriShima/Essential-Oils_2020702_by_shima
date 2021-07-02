@@ -12,6 +12,13 @@
     
     $id = $_GET['id'];
     
+    $oil = OilDAO::get_oil($id);
+    if($oil === false){
+        $_SESSION['flash_message'] = $id . 'のIDを持つオイルは存在しません';
+        header('Location: mypage_top.php');
+        exit;
+    }
+    
     $flash_message = $_SESSION['flash_message'];
     $_SESSION['flash_message'] = null;
     

@@ -41,7 +41,12 @@
             <p>ふと身体の不調を感じたと時にそっと寄り添ってくれるアロマオイルがあれば</p>
             <p>より健やかな日々になるはずです。</p>
         </div>
-    
+        
+        <form action="search_oils.php">
+            <input type="search" name="keyword" placeholder="オイル名">
+            <button type="submit">検索</button>
+        </form>
+        
         <div class="essential_oils">
             <h2 class="title">Essential Oils</h2>
             <div class="EoilContent">
@@ -51,11 +56,13 @@
                     <?php $letter = strtoupper(substr($oil->english_name, 0,1)); ?>
                     <?php if($letter !== $pre_letter): ?>
                         <?php if($count !== 1): ?>
+                        </div>
                     </div>
                             <?php $count = 1; ?>
                         <?php endif; ?>
                     <div class="oil">
                         <p1><?= $letter ?></p1>
+                        <div class="oil_elements">
                     <?php endif; ?>
                     
                     <?php $pre_letter = $letter; ?>
